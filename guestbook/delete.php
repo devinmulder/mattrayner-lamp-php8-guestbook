@@ -1,4 +1,7 @@
 <?php
+
+include(dirname(__FILE__).'/../conf/db.conf.php');
+
 if ($_GET[mode] != "delete")
 {
 ?>
@@ -17,7 +20,7 @@ if ($_GET[mode] != "delete")
     exit;
     }  //end if
 
-    $conn = mysqli_connect("localhost", "admin", "apmsetup", "brain_php");
+    $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
     //@mysqli_select_db("brain_php", $conn);
     // @mysqli_select_db($conn, "brain_php");
     //@mysqli_query("set names euckr");
