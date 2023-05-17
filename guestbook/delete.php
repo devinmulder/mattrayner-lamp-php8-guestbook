@@ -17,7 +17,7 @@ if ($_GET[mode] != "delete")
     exit;
     }  //end if
 
-    $conn = mysqli_connect("localhost", "admin", "apmsetup", "barin_php");
+    $conn = mysqli_connect("localhost", "admin", "apmsetup", "brain_php");
     //@mysqli_select_db("brain_php", $conn);
     // @mysqli_select_db($conn, "brain_php");
     //@mysqli_query("set names euckr");
