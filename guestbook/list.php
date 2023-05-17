@@ -1,7 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost", "admin", "apmsetup");
+$conn = mysqli_connect("localhost", "admin", "apmsetup", "brain_php");
 //mysqli_select_db("brain_php", $conn);
-mysqli_select_db($conn, "brain_php");
+//mysqli_select_db($conn, "brain_php");
 //mysqli_query("set names euckr");
 
 if ($_GET[no] == null)

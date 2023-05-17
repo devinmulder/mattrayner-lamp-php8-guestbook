@@ -1,8 +1,8 @@
 <?php
 
-$conn = mysqli_connect("localhost", "admin", "apmsetup");
+$conn = mysqli_connect("localhost", "admin", "apmsetup", "brain_php");
 //mysqli_select_db("brain_php", $conn);
-mysqli_select_db($conn, "brain_php");
+// mysqli_select_db($conn, "brain_php");
 //mysqli_query("set names euckr");
 
 $query = "INSERT INTO guestbook (name, pass, content) VALUES ('$_POST[name]', '$_POST[pass]', '$_POST[content]')";

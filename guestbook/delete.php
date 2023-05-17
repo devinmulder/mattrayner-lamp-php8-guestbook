@@ -17,9 +17,9 @@ if ($_GET[mode] != "delete")
     exit;
     }  //end if
 
-    $conn = mysqli_connect("localhost", "admin", "apmsetup");
+    $conn = mysqli_connect("localhost", "admin", "apmsetup", "barin_php");
     //@mysqli_select_db("brain_php", $conn);
-    @mysqli_select_db($conn, "brain_php");
+    // @mysqli_select_db($conn, "brain_php");
     //@mysqli_query("set names euckr");
 
     $query = "SELECT pass FROM guestbook WHERE id='$_GET[id]'";
