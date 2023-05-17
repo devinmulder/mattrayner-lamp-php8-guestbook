@@ -30,11 +30,16 @@ if ($_GET[mode] != "delete")
     if ($row[pass] == $_POST[pass]) {
         $query = "DELETE FROM guestbook WHERE id='$_GET[id]'";
         $result = mysqli_query($conn, $query);
+
+        $authentication_result = "글이 삭제되었습니다.";
+    } else {
+
+        $authentication_result = "비밀번호가 틀립니다.";
     }
 
     ?>
 
     <script>
-        alert("글이 삭제 되었습니다.");
+        alert("<?=$authentication_result?>");
         location.href = "list.php";
     </script>
