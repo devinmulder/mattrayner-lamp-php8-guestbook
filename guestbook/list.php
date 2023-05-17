@@ -4,13 +4,27 @@ $conn = mysqli_connect("localhost", "admin", "apmsetup");
 mysqli_select_db($conn, "brain_php");
 //mysqli_query("set names euckr");
 
-$query = "SELECT * FROM guestbook ORDER BY id DESC";
+if ($_GET[no] == null)
+    $offset = 0;
+else
+    $offset = $_GET[no];
+
+$pagesize = 5;
+
+
+$query = "SELECT count(id) FROM guestbook";
+$result = mysqli_query($conn, $query);
+$total = mysqli_fetch_array($result);
+$total = $total[0];
+
+
+//$query = "SELECT * FROM guestbook ORDER BY id DESC LIMIT 5 OFFSET $_GET[no]";
+$query = "SELECT * FROM guestbook ORDER BY id DESC LIMIT $pagesize OFFSET $offset";
 //$result = mysqli_query($query, $conn);
 $result = mysqli_query($conn, $query);
 //$total = mysqli_affected_rows($result);
-$total = mysqli_num_rows($result);
+$fetched_rows_num = mysqli_num_rows($result);
 
-$pagesize = 5;
 ?>
 
 <FORM ACTION="insert.php" METHOD="POST">
@@ -36,10 +50,10 @@ $pagesize = 5;
 <BR>
 
 <?php
-for ($i=$_GET[no] ; $i < $_GET[no] + $pagesize ; $i++) {
-    if ($i < $total)
+for ($i=0 ; $i < $pagesize ; $i++) {
+    if ($i < $fetched_rows_num)
     {
-        mysqli_data_seek($result, $i);
+        //mysqli_data_seek($result, $i);
         $row = mysqli_fetch_array($result);
 
 ?>
