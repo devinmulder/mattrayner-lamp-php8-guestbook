@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c6ddc90e-3a1d-4457-878c-f7059f8d877c" name="lamp4" url="http://localhost">
+        <fileTransfer rootFolder="/app" accessType="SFTP" host="localhost" port="22" sshConfigId="3071dae8-51eb-4b4e-beef-655d4c3f3f77" sshConfig="root@localhost:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
