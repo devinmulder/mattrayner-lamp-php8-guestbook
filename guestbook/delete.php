@@ -2,12 +2,12 @@
 
 include(dirname(__FILE__).'/../conf/db.conf.php');
 
-if ($_GET[mode] != "delete")
+if ($_GET['mode'] != "delete")
 {
 ?>
 
 <HTML>
-<FORM METHOD="POST" ACTION="<?= $_SERVER[PHP_SELF] ?>?id=<?= $_GET[id] ?>&mode=delete">
+<FORM METHOD="POST" ACTION="<?= $_SERVER['PHP_SELF'] ?>?id=<?= $_GET['id'] ?>&mode=delete">
     <TABLE>
         <TR>
             <TD>비밀번호</TD>
@@ -30,7 +30,7 @@ if ($_GET[mode] != "delete")
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
 
-    if ($row[pass] == $_POST[pass]) {
+    if ($row['pass'] == $_POST['pass']) {
         $query = "DELETE FROM guestbook WHERE id='$_GET[id]'";
         $result = mysqli_query($conn, $query);
 

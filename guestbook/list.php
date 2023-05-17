@@ -7,10 +7,10 @@ $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 //mysqli_select_db($conn, "brain_php");
 //mysqli_query("set names euckr");
 
-if ($_GET[no] == null)
+if ($_GET['no'] == null)
     $offset = 0;
 else
-    $offset = $_GET[no];
+    $offset = $_GET['no'];
 
 $pagesize = 5;
 
@@ -21,7 +21,7 @@ $total = mysqli_fetch_array($result);
 $total = $total[0];
 
 
-//$query = "SELECT * FROM guestbook ORDER BY id DESC LIMIT 5 OFFSET $_GET[no]";
+//$query = "SELECT * FROM guestbook ORDER BY id DESC LIMIT 5 OFFSET $_GET['no']";
 $query = "SELECT * FROM guestbook ORDER BY id DESC LIMIT $pagesize OFFSET $offset";
 //$result = mysqli_query($query, $conn);
 $result = mysqli_query($conn, $query);
@@ -61,13 +61,13 @@ for ($i = 0; $i < $fetched_rows_num; $i++) {
 
     <TABLE WIDTH="600" BORDER="1">
         <TR>
-            <TD>No. <?= $row[id] ?></TD>
-            <TD><?= $row[name] ?></TD>
-            <TD>(<?= $row[wdate] ?>)</TD>
-            <TD><a href="delete.php?id=<?= $row[id] ?>">del</a></TD>
+            <TD>No. <?= $row['id'] ?></TD>
+            <TD><?= $row['name'] ?></TD>
+            <TD>(<?= $row['wdate'] ?>)</TD>
+            <TD><a href="delete.php?id=<?= $row['id'] ?>">del</a></TD>
         </TR>
         <TR>
-            <TD COLSPAN="4"><?= $row[content] ?></TD>
+            <TD COLSPAN="4"><?= $row['content'] ?></TD>
         </TR>
     </TABLE>
 
@@ -75,8 +75,8 @@ for ($i = 0; $i < $fetched_rows_num; $i++) {
 
 }  //end for
 
-$prev = $_GET[no] - $pagesize;  // 이전 페이지는 시작 글에서 $pagesize 를 뺀 값부터
-$next = $_GET[no] + $pagesize;  // 다음 페이지는 시작 글에서 $pagesize 를 더한 값부터
+$prev = $_GET['no'] - $pagesize;  // 이전 페이지는 시작 글에서 $pagesize 를 뺀 값부터
+$next = $_GET['no'] + $pagesize;  // 다음 페이지는 시작 글에서 $pagesize 를 더한 값부터
 
 if ($prev >= 0) {
     echo("<a href='$_SERVER[PHP_SELF]?no=$prev'>이전</a> ");
